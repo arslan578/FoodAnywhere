@@ -162,3 +162,5 @@ todo.md
 sample-db.json
 media/
 db.json
+temp_auto_push.bat
+temp_interactive_push.bat
