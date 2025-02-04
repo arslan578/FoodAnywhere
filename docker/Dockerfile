@@ -3,8 +3,15 @@ FROM python:3.12-alpine
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONDONTWRITEBYTECODE=1
 
+# Install system dependencies including C++ compiler and build tools
+RUN apk add --no-cache \
+    build-base \
+    gcc \
+    g++ \
+    python3-dev
+
 # Install system dependencies
-RUN apk update && apk add gcc musl-dev &&  apk add linux-headers
+RUN apk update && apk add gcc musl-dev && apk add linux-headers
 
 # Install gdal-bin libgdal-dev python3-gdal
 RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community gdal-tools gdal-dev py3-gdal
